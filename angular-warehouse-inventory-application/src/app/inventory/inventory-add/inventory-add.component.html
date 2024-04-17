@@ -1,0 +1,31 @@
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Add Product Details</h2>
+      <form (ngSubmit)="submitForm()" #inventoryForm="ngForm">
+        <div>
+          <label for="category">Category:</label>
+          <input type="text" id="category" name="category" [(ngModel)]="newInventoryItem.category" required>
+        </div>
+        <div>
+          <label for="sku">Product SKU:</label>
+          <input type="text" id="sku" name="sku" [(ngModel)]="newInventoryItem.sku" required>
+        </div>
+        <div>
+          <label for="name">Product Name:</label>
+          <input type="text" id="name" name="name" [(ngModel)]="newInventoryItem.name" required>
+        </div>
+        <div>
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" [(ngModel)]="newInventoryItem.location" required>
+        </div>
+        <div>
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" [(ngModel)]="newInventoryItem.quantity" required>
+        </div>
+        <button type="submit" [disabled]="newInventoryItem.sku == ''|| newInventoryItem.name == ''|| newInventoryItem.category == ''|| newInventoryItem.location == '' ">Submit</button>
+      </form>
+      <button (click)="closeDialogAdd()">Close</button>
+    </div>
+  </div>
+</div>

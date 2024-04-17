@@ -1,0 +1,17 @@
+<h2>Warehouse Inventory Management Application</h2>
+<p><b>Login</b></p>
+<form (ngSubmit)="submitForm()" #inboundForm="ngForm">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    </div>
+    <p></p>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <button type="submit" [disabled]="user.username == ''|| password == ''">Submit</button>
+    <div *ngIf="showMessage" class="alert" [class.alert-fail]="userNotFound">
+        {{ message }}
+    </div>
+</form>    

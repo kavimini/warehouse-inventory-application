@@ -1,0 +1,7 @@
+<nav class="navbar" *ngIf="showMenu">
+    <a *ngIf="!authService.isOperator()" routerLink="/inventory">Inventory</a>
+    <a routerLink="/inbound">Inbound</a>
+    <a routerLink="/outbound">Outbound</a>
+    <a *ngIf="!authService.isOperator()" routerLink="/users">Manage Users</a>
+    <a href="#" (click)="logout()">Logout</a>
+</nav>

@@ -1,0 +1,51 @@
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Add Inbound Details</h2>
+      <form (ngSubmit)="submitForm()" #inboundForm="ngForm">
+        <div>
+          <label for="reference">Reference:</label>
+          <input type="text" id="reference" name="reference" [(ngModel)]="newInboundItem.reference" required>
+        </div>
+        <div>
+          <label for="dateReceived">Date Received:</label>
+          <input type="datetime-local" id="dateReceived" name="dateReceived" [(ngModel)]="newInboundItem.dateReceived" required>
+        </div>
+        <div>
+          <label for="sku">Product SKU:</label>
+          <input type="text" id="sku" name="sku" [(ngModel)]="newInboundItem.sku" required>
+        </div>
+        <div>
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" [(ngModel)]="newInboundItem.location" required>
+        </div>
+        <div>
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" [(ngModel)]="newInboundItem.quantity" required>
+        </div>
+        <div>
+          <label for="remarks">Remarks:</label>
+          <input type="text" id="remarks" name="remarks" [(ngModel)]="newInboundItem.remarks">
+        </div>
+        <p><b>Supplier info</b></p>
+        <div>
+          <label for="supplierName">Supplier/Company Name:</label>
+          <input type="text" id="supplierName" name="supplierName" [(ngModel)]="newInboundItem.supplier.name" required>
+        </div>
+        <div>
+          <label for="supplierAddress">Supplier Address:</label>
+          <input type="text" id="supplierAddress" name="supplierAddress" [(ngModel)]="newInboundItem.supplier.address">
+        </div>
+        <div>
+          <label for="supplierContact">Supplier Contact:</label>
+          <input type="text" id="supplierContact" name="supplierContact" [(ngModel)]="newInboundItem.supplier.contact">
+        </div>
+        <button type="submit" [disabled]="newInboundItem.sku == ''|| newInboundItem.supplier.name == ''">Submit</button>
+      </form>
+      <button (click)="closeDialogAdd()">Close</button>
+      <div *ngIf="showMessage" class="alert" [class.alert-success]="submissionSuccess">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+</div>

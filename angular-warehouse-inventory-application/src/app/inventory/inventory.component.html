@@ -1,0 +1,39 @@
+<h2>Inventory Products</h2>
+<form (ngSubmit)="onSearch(searchInput.value)">
+  <input type="text" #searchInput placeholder="Search....." />
+  <button type="submit">Search</button>
+</form>
+<p></p>
+<button (click)="addInventory()">Add</button>
+<p></p>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Product SKU</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Quantity</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventories">
+        <td>{{ item.id }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.sku }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.location }}</td>
+        <td>{{ item.quantity}}</td>
+        <td>
+          <button (click)="updateInventory(item.id)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <inventory-add [isVisible]="isInventoryAdd" (closeDialog)="closeDialogAdd()"></inventory-add>
+  <inventory-update [inventoryId]="inventoryId" [isVisible]="isInventoryUpdate" (closeDialog)="closeDialogUpdate()"></inventory-update>
+
+

@@ -1,0 +1,11 @@
+.alert {
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: black;
+    background-color: lightseagreen;
+    border-color: lightseagreen;
+  }
+
+

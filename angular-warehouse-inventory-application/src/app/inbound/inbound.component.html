@@ -1,0 +1,35 @@
+<h2>Inbound Data</h2>
+<button (click)="addInbound()">Add</button>
+<p></p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Reference</th>
+      <th>Date Received</th>
+      <th>Product SKU</th>
+      <th>Location</th>
+      <th>Quantity</th>
+      <th>Remarks</th>
+      <th>Supplier Name</th>
+      <th>Supplier Address</th>
+      <th>Supplier Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of inbound">
+      <td>{{ item.id }}</td>
+      <td>{{ item.reference }}</td>
+      <td>{{ item.dateReceived}}</td>
+      <td>{{ item.sku }}</td>
+      <td>{{ item.location }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.remarks }}</td>
+      <td>{{ item.supplier.name }}</td>
+      <td>{{ item.supplier.address }}</td>
+      <td>{{ item.supplier.contact }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<inbound-add [isVisible]="isInboundAdd" (closeDialog)="closeDialogAdd()"></inbound-add>
